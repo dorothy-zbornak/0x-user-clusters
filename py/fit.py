@@ -9,7 +9,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser('Clusterize exchange and forwarder contract callers')
     parser.add_argument('-e', '--eps', dest='eps', default=0.15, type=float, help='maximum distance between cluster points for the DBSCAN step')
     parser.add_argument('-s', '--samples', dest='min_samples', default=100, type=int, help='minimum number of samples for cluster cores for the DBSCAN step')
-    parser.add_argument('-c', '--clusters', dest='num_clusters', default=10, type=int, help='number of final clusters to generate')
+    parser.add_argument('-c', '--clusters', dest='num_clusters', default=11, type=int, help='number of final clusters to generate')
     parser.add_argument('-d', '--dendrogram', dest='draw_dendrogram', default=False, action='store_true', help='draw the dendrogram')
     parser.add_argument('--attenuate', dest='attenuate', default=0.5, type=float, help='attenuation factor for collapsed clusters')
     parser.add_argument('--brighten', dest='brighten', default=0.625, type=float, help='brightening factor for collapsed clusters')
