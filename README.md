@@ -29,11 +29,11 @@ This project uses the [`pull-0x-exchange-calls`](https://github.com/dorothy-zbor
 Google cloud credentials (JSON) file into the root of the project directory as
 `/credentials.json`. Any cloud project credentials file *should* work.
 
-To fetch call data starting from a time period, use the `--since` option,
-which takes a natural language string. Be patient, this may take a while. For example:
+Running the following command will pull all raw trace data from the past 6 months.
+Be patient, this may take a while.
 
 ```bash
-yarn pull --since "6 months ago"
+yarn pull
 ```
 
 This will create a call dump in `/data/raw-call-data.json`. Do not move this

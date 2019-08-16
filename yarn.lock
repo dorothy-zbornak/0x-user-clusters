@@ -1188,8 +1188,8 @@ process@~0.5.1:
   integrity sha1-FjjYqONML0QKkduVq5rrZ3/Bhc8=
 
 "pull-0x-exchange-calls@https://github.com/dorothy-zbornak/pull-0x-exchange-calls.git":
-  version "0.6.13"
-  resolved "https://github.com/dorothy-zbornak/pull-0x-exchange-calls.git#05fd305f0924fbd8370c594709e3003f950c0370"
+  version "0.6.14"
+  resolved "https://github.com/dorothy-zbornak/pull-0x-exchange-calls.git#013bc0e901ba0c675c4adffb988aca64f79588bc"
   dependencies:
     "@0x/contract-addresses" "^3.0.2"
     "@0x/contract-addresses-v2" "npm:@0x/contract-addresses@^2"
