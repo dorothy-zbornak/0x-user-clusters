@@ -12,7 +12,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', dest='model_file', default=None, type=str, required=True, help='cluster model file')
     parser.add_argument('-d', '--dendrogram', dest='draw_dendrogram', default=False, action='store_true', help='draw the dendrogram')
     parser.add_argument('--attenuate', dest='attenuate', default=0.5, type=float, help='attenuation factor for collapsed clusters')
-    parser.add_argument('--brighten', dest='brighten', default=0.5, type=float, help='brightening factor for collapsed clusters')
+    parser.add_argument('--brighten', dest='brighten', default=0.625, type=float, help='brightening factor for collapsed clusters')
     parser.add_argument('--linear', dest='linear_scale', default=False, action='store_true', help='draw bar plots in linear scale')
     parser.add_argument('-o', '--output', dest='output_file', default=None, type=str, help='file to output cluster information to')
     parser.add_argument(dest='call_data_file', type=str, help='the call data file')
@@ -38,7 +38,9 @@ if __name__ == '__main__':
                 'calls': {
                     method[9:]: sum(math.ceil(d[method] * d['total_calls']) if method in d else 0 for d in calls)
                     for method in call_features
-                }
+                },
+                'total_fills': sum([ d['total_fills'] for d in calls ]),
+                'total_orders': sum([ d['total_orders'] for d in calls ]),
             }
             for (k, calls)
             in split_by_labels(call_data, labels).items()

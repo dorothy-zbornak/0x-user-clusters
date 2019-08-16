@@ -11,21 +11,14 @@ def to_feature_name(feature):
     return re.sub(r'^calls_to_(.+)$', r'\1()', feature)
 
 def plot_class_stats(call_data, labels, ordering, ax, scale='log'):
-    unique_labels = tuple(frozenset(labels))
+    unique_labels = tuple(sorted(frozenset(labels)))
     ordered_labels = [ unique_labels[i] for i in ordering ]
-    items_by_label = [
-        [
-            d for (item_label, d) in zip(labels, call_data)
-            if item_label == label
-        ]
-        for label in unique_labels
-    ]
     fills_by_label = [
-        sum(d['total_fills'] for d in items_by_label[label])
+        sum(d['total_fills'] for (d, dl) in zip(call_data, labels) if dl == label)
         for label in ordered_labels
     ]
     orders_by_label = [
-        sum(d['total_orders'] for d in items_by_label[label])
+        sum(d['total_orders'] for (d, dl) in zip(call_data, labels) if dl == label)
         for label in ordered_labels
     ]
     bar_width = 1 / 3
@@ -122,7 +115,7 @@ def plot_heatmap(
         attenuate=attenuate,
         brighten=brighten,
     )
-    unique_labels = frozenset(labels)
+    unique_labels = sorted(frozenset(labels))
     features = reorder(features, col_ordering, row_ordering)
     col_names = reorder(create_label_names(call_data, labels), col_ordering)
     row_names = reorder([ to_feature_name(s) for s in FEATURES ], row_ordering)
