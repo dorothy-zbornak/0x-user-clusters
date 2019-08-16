@@ -1,0 +1,28 @@
+{
+    "name": "0x-user-clusters",
+    "version": "0.1.0",
+    "main": "index.js",
+    "author": "Lawrence Forman <me@merklejerk.com>",
+    "license": "Apache-2.0",
+    "private": true,
+    "scripts": {
+        "install": "npm explore pull-0x-exchange-calls -- yarn run build",
+        "pull": "NODE_OPTIONS='--max-old-space-size=8192' pull-0x-exchange-calls --output ./data/raw-call-data.json --since '6 months ago' --callee-abi ./abis/Exchange.json --callee-abi ./abis/Forwarder.json --include-constant-functions --callee 0x4f833a24e1f95d70f028921e27040ca56e09ab0b --callee 0x5468a1dc173652ee28d249c271fa9933144746b1 --callee 0x080bf510fcbf18b91105470639e9561022937712 --callee 0x76481caa104b5f6bccb540dae4cefaf1c398ebea --credentials './credentials.json'",
+        "parse": "node --max-old-space-size=8192 src/parse-call-data.js ./data/raw-call-data.json",
+        "pull-and-parse": "yarn run pull-call-data && yarn run parse-call-data",
+        "inertia": "python py/inertia.py",
+        "fit": "python py/fit.py --save ./models/model.bin",
+        "predict": "python py/predict.py --model ./models/model.bin"
+    },
+    "dependencies": {
+        "glob": "^7.1.4",
+        "lodash": "^4.17.15",
+        "mz": "^2.7.0",
+        "typescript": "^3.5.3",
+        "web3-eth-abi": "^1.2.1",
+        "yargs": "^13.3.0"
+    },
+    "devDependencies": {
+        "pull-0x-exchange-calls": "https://github.com/dorothy-zbornak/pull-0x-exchange-calls.git"
+    }
+}
