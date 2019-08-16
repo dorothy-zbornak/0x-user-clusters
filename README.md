@@ -4,7 +4,7 @@ Clustering users of 0x Exchange and Forwarder contracts based on call proportion
 
 ## Installation
 ```bash
-git clone https://github.com/dorothy-zbornak/0x-user-clusters
+git clone https://github.com/dorothy-zbornak/0x-user-clusters.git
 cd 0x-user-clusters/
 # Install node packages
 yarn -D
