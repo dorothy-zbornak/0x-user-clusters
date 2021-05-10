@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "glob": "^7.1.4",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.21",
         "mz": "^2.7.0",
         "pull-0x-exchange-calls": "https://github.com/dorothy-zbornak/pull-0x-exchange-calls.git",
         "typescript": "^3.5.3",
